@@ -5,7 +5,7 @@
           <input type="file" accept="image/*" @change="handleFileUpload" />
         </div>
         <div class="button">
-          <button @click="submit" :disabled="!selectedFile || isUploading">
+          <button @click="submit" :disabled="!selectedFile || isUploading" class="submit-btn">
             {{ isUploading ? 'Uploading...' : 'Submit' }}
           </button>
         </div>
@@ -69,4 +69,56 @@
     },
   };
   </script>
+  
+  <style scoped>
+  .block {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background: #eaeff0;
+    color: black;
+    text-align: center;
+    padding: 30px;
+    margin: 40px auto;
+  }
+  
+  .choose_file input[type="file"] {
+    padding: 8px 12px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  .choose_file input[type="file"]:hover {
+    border-color: #2980b9;
+  }
+  
+  .button {
+    margin-top: 20px;
+  }
+  
+  .submit-btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+  
+  .submit-btn:hover {
+    background-color: #2980b9;
+  }
+  </style>
   

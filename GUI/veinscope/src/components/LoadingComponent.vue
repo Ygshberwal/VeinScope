@@ -30,7 +30,6 @@
     align-items: center;
     padding: 20px;
     height: 250px;
-    background-color: #f9f9f9;
     border-radius: 10px;
   }
   

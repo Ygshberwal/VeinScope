@@ -1,28 +1,31 @@
 <template>
-  <h1> Vein Scope</h1>
-  <!-- <button @click="upload">Upload Eye Image</button> -->
-  <UploadBody v-if="isUploading">
-  </UploadBody>
+  <div id="app">
+    <HeaderComponent />
+
+    <!-- If using Vue Router -->
+    <router-view v-if="!isUploading" />
+
+    <!-- Or directly rendering UploadBody -->
+    <UploadBody v-if="isUploading" />
+  </div>
 </template>
 
 <script>
-import UploadBody from './components/UploadBody.vue'     //Importing default export of Body.vue
+import UploadBody from './components/UploadBody.vue';
+import HeaderComponent from './components/HeaderComponent.vue';
 
 export default {
   name: 'App',
-  components: { UploadBody },
-  data(){
-    return{
-      isUploading: true,
-
-    }
+  components: {
+    UploadBody,
+    HeaderComponent,
   },
-  methods:{
-    upload(){
-
-    }
-  }
-}
+  data() {
+    return {
+      isUploading: true,
+    };
+  },
+};
 </script>
 
 <style>
@@ -34,5 +37,10 @@ export default {
   color: #444;
   margin-top: 60px;
 }
-</style>
 
+h1 {
+  margin-top: 20px;
+  font-size: 28px;
+  color: #2c3e50;
+}
+</style>
