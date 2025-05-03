@@ -1,12 +1,14 @@
 <template>
-    <div class="processing-container">
-      <div class="image-section">
-        <img :src="imageUrl" alt="Uploaded" class="preview-image" />
-        <p>Original Image</p>
-      </div>
-      <div class="result-section">
-        <div class="spinner"></div>
-        <p>Processing...</p>
+    <div class="processing-wrapper">
+      <div class="processing-container">
+        <div class="image-section">
+          <img :src="imageUrl" alt="Uploaded" class="preview-image" />
+          <p class="section-label">Original Image</p>
+        </div>
+        <div class="result-section">
+          <div class="spinner"></div>
+          <p class="section-label">Processing...</p>
+        </div>
       </div>
     </div>
   </template>
@@ -23,39 +25,71 @@
   };
   </script>
   
-  <style scoped>
-  .processing-container {
+  <style>
+  .processing-wrapper {
+    width: 100%;
+    max-width: 1400px; /* Increased from 1200 */
+    height: auto;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
-    height: 250px;
-    border-radius: 10px;
+    justify-content: center;
+    margin: 0 auto; /* Changed from 0 */
+    padding: 20px 0; /* Added padding */
   }
   
-  .image-section,
+  .processing-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    gap: 60px; /* Increased gap */
+  }
+  
+  .image-section {
+    flex: 1.2; /* Increased flex ratio */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
   .result-section {
     flex: 1;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .preview-image {
-    width: 200px;
-    height: 200px;
-    object-fit: contain; /* Keeps image aspect ratio within bounds */
-    border: 2px solid #ccc;
+    width: 100%;
+    max-width: 500px; /* Increased max-width */
+    height: auto;
+    object-fit: contain;
     border-radius: 10px;
-    background-color: white;
+    margin-bottom: 15px; /* Increased margin */
+  }
+  
+  .section-label {
+    font-size: 32px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(7, 7, 7);
+    margin-top: 12px; /* Increased margin */
+    text-align: center;
+    padding: 8px 20px; /* Increased padding */
+    border-radius: 4px;
   }
   
   .spinner {
-    border: 5px solid #e0e0e0;
-    border-top: 5px solid #3498db;
+    border: 6px solid #82b0f1; /* Thicker border */
+    border-top: 6px solid #1652a6; /* Thicker border */
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 70px; /* Larger spinner */
+    height: 70px; /* Larger spinner */
     animation: spin 1s linear infinite;
-    margin: 0 auto 10px;
+    margin-bottom: 15px; /* Increased margin */
   }
   
   @keyframes spin {
@@ -63,5 +97,20 @@
       transform: rotate(360deg);
     }
   }
-  </style>
   
+  @media (max-width: 768px) {
+    .processing-container {
+      flex-direction: column;
+      gap: 30px;
+      padding: 30px 20px;
+    }
+    
+    .image-section, .result-section {
+      width: 100%;
+    }
+    
+    .preview-image {
+      max-width: 100%;
+    }
+  }
+  </style>

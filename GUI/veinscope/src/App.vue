@@ -2,6 +2,7 @@
   <div id="app">
     <HeaderComponent />
 
+
     <!-- If using Vue Router -->
     <router-view v-if="!isUploading" />
 
